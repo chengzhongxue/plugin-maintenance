@@ -1,0 +1,112 @@
+apiVersion: v1alpha1
+kind: Setting
+metadata:
+  name: maintenance-settings
+spec:
+  forms:
+    - group: basic
+      label: 基本配置
+      formSchema:
+        - $formkit: text
+          name: title
+          label: 标题
+          value: 维护中
+        - $formkit: code
+          name: description
+          label: 描述
+          language: html
+          height: 200px
+          value: <p>为了给您提供更优质的体验，我们正在进行系统升级与常规维护。</p> <p>预计将在 <strong>短时间内</strong> 恢复正常访问，请稍后再来。</p>
+        - $formkit: switch
+          name: enable
+          id: enable
+          label: 启用维护模式
+          value: false
+        - $formkit: radio
+          name: maintenanceType
+          id: maintenanceType
+          label: 类型
+          value: always
+          options:
+            - label: 始终
+              value: always
+            - label: 定时
+              value: timing
+        - $formkit: switch
+          name: repetitionCycle
+          id: repetitionCycle
+          label: 重复周期
+          value: false
+        - $formkit: datetime-local
+          if: $get(maintenanceType).value == 'timing' && !$get(repetitionCycle).value
+          name: startTime
+          key: startTime
+          label: 开始时间
+          min: "0000-01-01T00:00"
+          max: "9999-12-31T23:59"
+          value: "2026-03-19T00:00"
+          validation: required
+        - $formkit: datetime-local
+          if: $get(maintenanceType).value == 'timing' && !$get(repetitionCycle).value
+          name: endTime
+          key: endTime
+          label: 结束时间
+          min: "0000-01-01T00:00"
+          max: "9999-12-31T23:59"
+          value: "2026-03-19T09:00"
+          validation: required
+        - $formkit: select
+          if: $get(maintenanceType).value == 'timing' && $get(repetitionCycle).value
+          name: cycle
+          key: cycle
+          label: 重复周期时间（周一到周天）
+          validation: required
+          options:
+            - label: 周一
+              value: "1"
+            - label: 周二
+              value: "2"
+            - label: 周三
+              value: "3"
+            - label: 周四
+              value: "4"
+            - label: 周五
+              value: "5"
+            - label: 周六
+              value: "6"
+            - label: 周日
+              value: "7"
+        - $formkit: time
+          if: $get(maintenanceType).value == 'timing' && $get(repetitionCycle).value
+          name: cycleStartTime
+          key: cycleStartTime
+          label: 开始时间
+          value: "00:00"
+          validation: required
+        - $formkit: time
+          if: $get(maintenanceType).value == 'timing' && $get(repetitionCycle).value
+          name: cycleEndTime
+          key: cycleEndTime
+          label: 结束时间
+          value: "09:00"
+          validation: required
+        - $formkit: radio
+          name: whitelistMode
+          id: whitelistMode
+          label: 白名单模式
+          value: login
+          options:
+            - label: 登录
+              value: login
+            - label: 用户
+              value: user
+        - $formkit: userSelect
+          if: $get(whitelistMode).value == 'user'
+          name: whitelist
+          key: whitelist
+          label: 白名单
+          multiple: true
+          validation: required
+          value: ["admin"]
+
+

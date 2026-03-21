@@ -1,0 +1,22 @@
+apiVersion: plugin.halo.run/v1alpha1
+kind: Plugin
+metadata:
+  name: maintenance
+spec:
+  enabled: true
+  requires: ">=2.22.10"
+  version: "1.0.0"
+  author:
+    name: 困困鱼
+    website: https://github.com/chengzhongxue
+  logo: logo.svg
+  homepage: https://github.com/chengzhongxue/maintenance#readme
+  repo: https://github.com/chengzhongxue/maintenance
+  issues: https://github.com/chengzhongxue/maintenance/issues
+  displayName: "站点维护"
+  description: "开启维护模式进入站点维护页面"
+  configMapName: maintenance-configMap
+  settingName: maintenance-settings
+  license:
+    - name: "GPL-3.0"
+      url: "https://github.com/chengzhongxue/maintenance/blob/main/LICENSE"
