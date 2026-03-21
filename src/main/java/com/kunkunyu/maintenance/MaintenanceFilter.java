@@ -4,7 +4,6 @@ import com.kunkunyu.maintenance.service.SettingConfig;
 
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.web.server.util.matcher.AndServerWebExchangeMatcher;
 import org.springframework.security.web.server.util.matcher.MediaTypeServerWebExchangeMatcher;
@@ -16,11 +15,9 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
-import org.springframework.web.server.WebSession;
 import reactor.core.publisher.Mono;
 import run.halo.app.infra.ExternalLinkProcessor;
 import run.halo.app.security.AdditionalWebFilter;
-import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
 
