@@ -3,7 +3,7 @@ kind: Plugin
 metadata:
   name: maintenance
 spec:
-  enabled: true
+  enabled: false
   requires: ">=2.22.10"
   version: "1.0.0"
   author:
