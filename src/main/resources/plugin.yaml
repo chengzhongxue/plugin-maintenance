@@ -2,6 +2,8 @@ apiVersion: plugin.halo.run/v1alpha1
 kind: Plugin
 metadata:
   name: maintenance
+  annotations:
+    "store.halo.run/app-id": "app-umgvtji6"
 spec:
   enabled: false
   requires: ">=2.22.10"
@@ -10,13 +12,13 @@ spec:
     name: 困困鱼
     website: https://github.com/chengzhongxue
   logo: logo.svg
-  homepage: https://github.com/chengzhongxue/maintenance#readme
-  repo: https://github.com/chengzhongxue/maintenance
-  issues: https://github.com/chengzhongxue/maintenance/issues
+  homepage: https://www.halo.run/store/apps/app-umgvtji6
+  repo: https://github.com/chengzhongxue/plugin-maintenance
+  issues: https://github.com/chengzhongxue/plugin-maintenance/issues
   displayName: "站点维护"
   description: "开启维护模式进入站点维护页面"
   configMapName: maintenance-configMap
   settingName: maintenance-settings
   license:
     - name: "GPL-3.0"
-      url: "https://github.com/chengzhongxue/maintenance/blob/main/LICENSE"
+      url: "https://github.com/chengzhongxue/plugin-maintenance/blob/main/LICENSE"
