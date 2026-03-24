@@ -24,7 +24,10 @@ public class SettingConfigImpl implements SettingConfig {
     @Async
     @EventListener(PluginConfigUpdatedEvent.class)
     void onPluginConfigUpdatedEvent() {
+        setConfig();
+    }
 
+    public void setConfig() {
         var basicConfigMono = settingFetcher.fetch(BasicConfig.GROUP, BasicConfig.class)
             .doOnNext(basicConfigRef::set);
 
