@@ -101,7 +101,7 @@ public class MaintenanceFilter implements AdditionalWebFilter {
             return requiresMatcher.matches(exchange)
                 .flatMap(matchResult -> {
                     BasicConfig basicConfig = settingConfig.getBasicConfig();
-                    if (!basicConfig.getEnable()) {
+                    if (!basicConfig.getEnabled()) {
                         return chain.filter(exchange);
                     }
 

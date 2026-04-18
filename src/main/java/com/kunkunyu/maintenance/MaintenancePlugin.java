@@ -18,11 +18,9 @@ public class MaintenancePlugin extends BasePlugin {
     @Override
     public void start() {
         settingConfig.setConfig();
-        System.out.println("插件启动成功！");
     }
 
     @Override
     public void stop() {
-        System.out.println("插件停止！");
     }
 }

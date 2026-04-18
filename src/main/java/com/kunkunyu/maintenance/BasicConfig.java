@@ -16,7 +16,7 @@ public class BasicConfig {
     private String description;
 
     @Schema(description = "是否启用")
-    private Boolean enable;
+    private Boolean enabled;
 
     @Schema(description = "维护类型")
     private String maintenanceType;
@@ -44,5 +44,11 @@ public class BasicConfig {
 
     @Schema(description = "白名单")
     private List<String> whitelist;
+
+    public static BasicConfig empty() {
+        BasicConfig basicConfig = new BasicConfig();
+        basicConfig.setEnabled(false);
+        return basicConfig;
+    }
 
 }

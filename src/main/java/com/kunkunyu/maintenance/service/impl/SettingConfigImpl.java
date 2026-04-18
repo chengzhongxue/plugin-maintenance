@@ -40,7 +40,7 @@ public class SettingConfigImpl implements SettingConfig {
     public BasicConfig getBasicConfig() {
         BasicConfig basicConfig = basicConfigRef.get();
         if (basicConfig == null) {
-            return new BasicConfig();
+            basicConfig = BasicConfig.empty();
         }
         return basicConfig;
     }

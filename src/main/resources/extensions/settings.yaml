@@ -18,8 +18,8 @@ spec:
           height: 200px
           value: <p>为了给您提供更优质的体验，我们正在进行系统升级与常规维护。</p> <p>预计将在 <strong>短时间内</strong> 恢复正常访问，请稍后再来。</p>
         - $formkit: switch
-          name: enable
-          id: enable
+          name: enabled
+          id: enabled
           label: 启用维护模式
           value: false
         - $formkit: radio
